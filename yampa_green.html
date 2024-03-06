@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Yampa and Green</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+	
+</head>
+<body>
+<h3><a href="index.html">Home</a></h3>
+<div id="map" style="width: auto; height: auto;"></div>
+<script>
+
+	const map = L.map('map').setView([39.8, -107.26], 8);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+	
+  const m09237450 = L.marker([40.264319, -106.891555]).addTo(map)
+		.bindPopup('<b>09237450 YAMPA RIVER ABOVE STAGECOACH RESERVOIR, CO (Seasonal: April - November)</b><br/><a href="https://maps.app.goo.gl/dQTNa7YAtAU82GAk6">Map</a>').openPopup();
+
+  const m09239500 = L.marker([40.264319, -106.891555]).addTo(map)
+		.bindPopup('<b>009239500 YAMPA RIVER AT STEAMBOAT SPRINGS, CO</b><br/><a href="https://maps.app.goo.gl/UyBT9p5tUep5eKw38">Map</a>').openPopup(); 
+
+  const m09251000 = L.marker([40.502847, -108.033369]).addTo(map)
+		.bindPopup('<b>09251000 YAMPA RIVER NEAR MAYBELL, CO</b><br/><a href="https://maps.app.goo.gl/Xp6WpXxebrSQ8jXW9">Map</a>').openPopup();
+
+  const m09260050 = L.marker([40.451987, -108.526107]).addTo(map)
+		.bindPopup('<b>09260050 YAMPA RIVER AT DEERLODGE PARK, CO</b><br/><a href="https://maps.app.goo.gl/fyVqE4dkS8BddXEX6">Map</a>').openPopup();
+
+  const m404417108524900 = L.marker([40.738030, -108.880650]).addTo(map)
+		.bindPopup('<b>404417108524900	GREEN RIVER ABOVE GATES OF LODORE, CO</b><br/><a href="https://maps.app.goo.gl/RtNg5M6TzggsqT5G8">Map</a>').openPopup();
+  
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+</script>
+
+</body>
+</html>
 
