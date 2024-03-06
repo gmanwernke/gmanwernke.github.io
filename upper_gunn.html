@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Upper Gunnison</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+	
+</head>
+<body>
+<h3><a href="index.html">Home</a></h3>
+<p><b>Map of Upper Gunnison and Tributaries CWQM Sites</b></p>
+<div id="map" style="width: 1000px; height: 800px;"></div>
+<script>
+
+	const map = L.map('map').setView([39.8, -107.26], 8);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+	
+	const m385106106571000 = L.marker([38.851669, -106.953151]).addTo(map)
+		.bindPopup('<b>385106106571000	SLATE R AB BAXTER GL AT HWY 135 NR CRESTED BUTTE, CO (Seasonal: May 1 - October 30)</b><br/><a href="https://maps.app.goo.gl/E4692CxjHbGDdcAk8">Map</a>').openPopup();
+
+  const m09107000 = L.marker([38.860262, -106.567085]).addTo(map)
+		.bindPopup('<b>09107000 TAYLOR RIVER AT TAYLOR PARK, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/Dd7FFCBjQp4UhTWz5">Map</a>').openPopup();
+
+  const m09112500 = L.marker([38.664443, -106.847897]).addTo(map)
+		.bindPopup('<b>09112500 EAST RIVER AT ALMONT, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/ZDjugBPfZbbmgCVS8">Map</a>').openPopup();
+
+  const m09110000 = L.marker([38.664602, -106.845317]).addTo(map)
+		.bindPopup('<b>09110000 TAYLOR RIVER AT ALMONT, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/VQqmBFYEe5Hp8CGk8">Map</a>').openPopup();
+
+  const m09114500 = L.marker([38.541776, -106.949660]).addTo(map)
+		.bindPopup('<b>09114500 GUNNISON RIVER NEAR GUNNISON, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/6oHDf6wAQ4dqG3qG8">Map</a>').openPopup();
+
+  const m09119000 = L.marker([38.521408, -106.940106]).addTo(map)
+		.bindPopup('<b>09119000 TOMICHI CREEK AT GUNNISON, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/apwCYzkGwZzJcbCd8">Map</a>').openPopup();
+
+  const m09124500 = L.marker([38.298884, -107.230147]).addTo(map)
+		.bindPopup('<b>09124500 LAKE FORK AT GATEVIEW, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/AMxDp5teEvQAiRjLA">Map</a>').openPopup();
+
+  const m09127000 = L.marker([38.447165, -107.555026]).addTo(map)
+		.bindPopup('<b>09127000 CIMARRON RIVER BLW CIMARRON CREEK AT CIMARRON, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/ppoDyKJsLbsYHNL88">Map</a>').openPopup();
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+</script>
+
+</body>
+</html>
