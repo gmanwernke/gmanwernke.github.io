@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Yampa and Green</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+	
+</head>
+<body>
+<h3><a href="index.html">Home</a></h3>
+<p><b>Lower Gunnison and Tributaries</b></p>
+<div id="map" style="width: 1000px; height: 800px;"></div>
+<script>
+
+	const map = L.map('map').setView([39.8, -107.26], 8);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+	
+	const m09136100 = L.marker([38.785146, -107.833464]).addTo(map)
+		.bindPopup('<b>09136100 NORTH FK GUNNISON RIVER ABOVE MOUTH NR LAZEAR, CO</b><br/><a href="https://maps.app.goo.gl/uYN4NssR5Mfm6YLB6">Map</a>').openPopup();
+
+  const m09144250 = L.marker([38.753251, -108.078651]).addTo(map)
+		.bindPopup('<b>09144250 GUNNISON RIVER AT DELTA, CO</b><br/><a href="https://maps.app.goo.gl/aB1MakMNmbCdHkXG8">Map</a>').openPopup();
+
+  const m09152500 = L.marker([38.983360, -108.450741]).addTo(map)
+		.bindPopup('<b>09152500 GUNNISON RIVER NEAR GRAND JUNCTION, CO</b><br/><a href="https://maps.app.goo.gl/xHnC1ZqQh4iy11yW9">Map</a>').openPopup();
+
+  const m09147500 = L.marker([38.331437, -107.779236]).addTo(map)
+		.bindPopup('<b>09147500 UNCOMPAHGRE RIVER AT COLONA, CO</b><br/><a href="https://maps.app.goo.gl/KBejrXzZtfdD8F9E7">Map</a>').openPopup();
+
+  const m383926107593001 = L.marker([38.657369, -107.992894]).addTo(map)
+		.bindPopup('<b>383926107593001 LOUTSENHIZER ARROYO AT HWY 50 NEAR OLATHE CO</b><br/><a href="https://maps.app.goo.gl/4Ch5CUU6xbaRd5Ti8">Map</a>').openPopup();
+
+  const m09149500 = L.marker([38.741940, -108.080398]).addTo(map)
+		.bindPopup('<b>09149500 UNCOMPAHGRE RIVER AT DELTA, CO</b><br/><a href="https://maps.app.goo.gl/4qwWqXEMJQkLAvm28">Map</a>').openPopup();
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+</script>
+
+</body>
+</html>
+
