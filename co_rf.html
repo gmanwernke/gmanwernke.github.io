@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Colorado and Roaring Fork</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+<div id="map" style="width: 1000px; height: 800px;"></div>
+<script>
+
+	const map = L.map('map').setView([39.8, -107.26], 8);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+	
+	const m09060799 = L.marker([39.891291, -106.830983]).addTo(map)
+		.bindPopup('<b>09060799 COLORADO RIVER AT CATAMOUNT BRIDGE, CO</b>').openPopup();
+		
+	const m09070500 = L.marker([39.644212, -107.079440]).addTo(map)
+		.bindPopup('<b>09070500 COLORADO RIVER NEAR DOTSERO, CO</b>').openPopup();
+		
+	const m09071750 = L.marker([39.557842, -107.290781]).addTo(map)
+		.bindPopup('<b>09071750 COLORADO RIVER ABOVE GLENWOOD SPRINGS, CO</b>').openPopup();
+		
+	const m09073300 = L.marker([39.140967, -106.774438]).addTo(map)
+		.bindPopup('<b>09073300 ROARING FORK RIVER AB DIFFICULT C NR ASPEN, CO (Seasonal: May 1 - October 31)</b>').openPopup();
+		
+	const m09076300 = L.marker([39.223215, -106.857274]).addTo(map)
+		.bindPopup('<b>09076300 ROARING FORK RIVER BLW MAROON CREEK NR ASPEN, CO (Seasonal: May 1 - October 31)</b>').openPopup();	
+
+	const m09081000 = L.marker([39.373417, -107.084308]).addTo(map)
+		.bindPopup('<b>09081000 ROARING FORK RIVER NEAR EMMA, CO (Seasonal: May 1 - October 31)</b>').openPopup();
+		
+	const m09085000 = L.marker([39.546699, -107.330842]).addTo(map)
+		.bindPopup('<b>09085000 ROARING FORK RIVER AT GLENWOOD SPRINGS, CO</b>').openPopup();
+
+	const m393259107194801 = L.marker([39.549748, -107.330142]).addTo(map)
+		.bindPopup('<b>393259107194801 COLORADO R ABV ROARING FORK R AT GLENWOOD SPGS, CO</b>').openPopup();
+
+	const m09085150 = L.marker([39.561731, -107.406910]).addTo(map)
+		.bindPopup('<b>09085150 COLORADO R ABV SOUTH CANYON CR NR GLENWOOD SPGS, CO</b>').openPopup();
+		
+	const m391953108130201 = L.marker([39.331205, -108.217848]).addTo(map)
+		.bindPopup('<b>391953108130201 ROAN CREEK AT DE BEQUE, CO</b>').openPopup();	
+		
+	const m09095500 = L.marker([39.239128, -108.265835]).addTo(map)
+		.bindPopup('<b>09095500 COLORADO RIVER NEAR CAMEO, CO</b>').openPopup();	
+		
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+</script>
+
+</body>
+</html>
+
