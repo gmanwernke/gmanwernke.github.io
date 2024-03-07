@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>All CWQM Sites</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+<h3><a href="index.html">Home</a></h3>
+<p><b>Map of all WCO CWQM Sites</b></p>
+<div id="map" style="width: 1000px; height: 800px;"></div>
+<script>
+
+	const map = L.map('map').setView([39.8, -107.26], 8);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+	
+  const m09060799 = L.marker([39.891291, -106.830983]).addTo(map)
+		.bindPopup('<b>09060799 COLORADO RIVER AT CATAMOUNT BRIDGE, CO</b><br/><a href="https://maps.app.goo.gl/h78HNJ3UP3wgWVV28">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09060799/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09070500 = L.marker([39.644212, -107.079440]).addTo(map)
+		.bindPopup('<b>09070500 COLORADO RIVER NEAR DOTSERO, CO</b><br/><a href="https://maps.app.goo.gl/2HZ7A6hCAfPnKjBS7">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09070500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09071750 = L.marker([39.557842, -107.290781]).addTo(map)
+		.bindPopup('<b>09071750 COLORADO RIVER ABOVE GLENWOOD SPRINGS, CO</b><br/><a href="https://maps.app.goo.gl/DPqTMGd4Ym4B4Lj18">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09071750/#parameterCode=00010&period=P7D&showMedian=true">Site Page</a>');
+		
+	const m09073300 = L.marker([39.140967, -106.774438]).addTo(map)
+		.bindPopup('<b>09073300 ROARING FORK RIVER AB DIFFICULT C NR ASPEN, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/bf2NkZaLFigkwVX56">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09073300/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09076300 = L.marker([39.223215, -106.857274]).addTo(map)
+		.bindPopup('<b>09076300 ROARING FORK RIVER BLW MAROON CREEK NR ASPEN, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/zhAAXGRgi9fEMAq1A">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09076300/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');	
+
+	const m09081000 = L.marker([39.373417, -107.084308]).addTo(map)
+		.bindPopup('<b>09081000 ROARING FORK RIVER NEAR EMMA, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/uaTQRFcxgjhne3hn9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09081000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09085000 = L.marker([39.546699, -107.330842]).addTo(map)
+		.bindPopup('<b>09085000 ROARING FORK RIVER AT GLENWOOD SPRINGS, CO</b><br/><a href="https://maps.app.goo.gl/fyFANN9WFfD9rb5n8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09085000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m393259107194801 = L.marker([39.549748, -107.330142]).addTo(map)
+		.bindPopup('<b>393259107194801 COLORADO R ABV ROARING FORK R AT GLENWOOD SPGS, CO</b><br/><a href="https://maps.app.goo.gl/DggysYJZFKKHDU6k6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/393259107194801/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09085150 = L.marker([39.561731, -107.406910]).addTo(map)
+		.bindPopup('<b>09085150 COLORADO R ABV SOUTH CANYON CR NR GLENWOOD SPGS, CO</b><br/><a href="https://maps.app.goo.gl/aktWnCwitHRbNKMX8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09085150/#parameterCode=00010&period=P7D&showMedian=true">Site Page</a>');
+		
+	const m391953108130201 = L.marker([39.331205, -108.217848]).addTo(map)
+		.bindPopup('<b>391953108130201 ROAN CREEK AT DE BEQUE, CO</b><br/><a href="https://maps.app.goo.gl/3oFFHBDkTCNkG2169">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/391953108130201/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');	
+		
+	const m09095500 = L.marker([39.239128, -108.265835]).addTo(map)
+		.bindPopup('<b>09095500 COLORADO RIVER NEAR CAMEO, CO</b><br/><a href="https://maps.app.goo.gl/hWByxvBd6sdGeN8X6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09095500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');	
+		
+	const m09066510 = L.marker([39.609869, -106.447049]).addTo(map)
+		.bindPopup('<b>09066510 GORE CREEK AT MOUTH NEAR MINTURN, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/nQiHGzohd87cbU5Z8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09066510/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09063000 = L.marker([39.508673, -106.366708]).addTo(map)
+		.bindPopup('<b>09063000 EAGLE RIVER AT RED CLIFF, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/MXapJYY2pZvC3gnf9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09063000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09064600 = L.marker([39.554379, -106.402259]).addTo(map)
+		.bindPopup('<b>09064600 EAGLE RIVER NEAR MINTURN, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/8FJj4Bz5hYkY8Qw5A">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09064600/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m394220106431500 = L.marker([39.704950, -106.725914]).addTo(map)
+		.bindPopup('<b>394220106431500	EAGLE RIVER BELOW MILK CREEK NEAR WOLCOTT, CO</b><br/><a href="https://maps.app.goo.gl/pD8s1mzmok3o14qy8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/394220106431500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09070050 = L.marker([39.652151, -106.965510]).addTo(map)
+		.bindPopup('<b>09070050 EAGLE RIVER AT PRICE LANE BRIDGE NEAR GYPSUM, CO</b><br/><a href="https://maps.app.goo.gl/gNRoMjj43Ej1aDdy8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09070050/#parameterCode=00010&period=P7D&showMedian=true">Site Page</a>');		
+		
+	const m09163500 = L.marker([39.132701, -109.027020]).addTo(map)
+		.bindPopup('<b>09163500 COLORADO RIVER NEAR COLORADO-UTAH STATE LINE</b><br/><a href="https://maps.app.goo.gl/njjEem1v5U3MUyMB6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09163500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09136100 = L.marker([38.785146, -107.833464]).addTo(map)
+		.bindPopup('<b>09136100 NORTH FK GUNNISON RIVER ABOVE MOUTH NR LAZEAR, CO</b><br/><a href="https://maps.app.goo.gl/uYN4NssR5Mfm6YLB6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09136100/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09144250 = L.marker([38.753251, -108.078651]).addTo(map)
+		.bindPopup('<b>09144250 GUNNISON RIVER AT DELTA, CO</b><br/><a href="https://maps.app.goo.gl/aB1MakMNmbCdHkXG8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09144250/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09152500 = L.marker([38.983360, -108.450741]).addTo(map)
+		.bindPopup('<b>09152500 GUNNISON RIVER NEAR GRAND JUNCTION, CO</b><br/><a href="https://maps.app.goo.gl/xHnC1ZqQh4iy11yW9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09152500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09147500 = L.marker([38.331437, -107.779236]).addTo(map)
+		.bindPopup('<b>09147500 UNCOMPAHGRE RIVER AT COLONA, CO</b><br/><a href="https://maps.app.goo.gl/KBejrXzZtfdD8F9E7">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09147500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m383926107593001 = L.marker([38.657369, -107.992894]).addTo(map)
+		.bindPopup('<b>383926107593001 LOUTSENHIZER ARROYO AT HWY 50 NEAR OLATHE CO</b><br/><a href="https://maps.app.goo.gl/4Ch5CUU6xbaRd5Ti8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/383926107593001/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09149500 = L.marker([38.741940, -108.080398]).addTo(map)
+		.bindPopup('<b>09149500 UNCOMPAHGRE RIVER AT DELTA, CO</b><br/><a href="https://maps.app.goo.gl/4qwWqXEMJQkLAvm28">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09149500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m385106106571000 = L.marker([38.851669, -106.953151]).addTo(map)
+		.bindPopup('<b>385106106571000 SLATE R AB BAXTER GL AT HWY 135 NR CRESTED BUTTE, CO (Seasonal: May 1 - October 30)</b><br/><a href="https://maps.app.goo.gl/E4692CxjHbGDdcAk8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/385106106571000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09107000 = L.marker([38.860262, -106.567085]).addTo(map)
+		.bindPopup('<b>09107000 TAYLOR RIVER AT TAYLOR PARK, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/Dd7FFCBjQp4UhTWz5">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09107000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+ 	const m09112500 = L.marker([38.664443, -106.847897]).addTo(map)
+		.bindPopup('<b>09112500 EAST RIVER AT ALMONT, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/ZDjugBPfZbbmgCVS8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09112500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09110000 = L.marker([38.664602, -106.845317]).addTo(map)
+		.bindPopup('<b>09110000 TAYLOR RIVER AT ALMONT, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/VQqmBFYEe5Hp8CGk8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09110000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09114500 = L.marker([38.541776, -106.949660]).addTo(map)
+		.bindPopup('<b>09114500 GUNNISON RIVER NEAR GUNNISON, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/6oHDf6wAQ4dqG3qG8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09114500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+ 	const m09119000 = L.marker([38.521408, -106.940106]).addTo(map)
+		.bindPopup('<b>09119000 TOMICHI CREEK AT GUNNISON, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/apwCYzkGwZzJcbCd8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09119000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09124500 = L.marker([38.298884, -107.230147]).addTo(map)
+		.bindPopup('<b>09124500 LAKE FORK AT GATEVIEW, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/AMxDp5teEvQAiRjLA">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09124500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  const m09127000 = L.marker([38.447165, -107.555026]).addTo(map)
+		.bindPopup('<b>09127000 CIMARRON RIVER BLW CIMARRON CREEK AT CIMARRON, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/ppoDyKJsLbsYHNL88">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09127000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');	
+	
+	const m09237450 = L.marker([40.264319, -106.891555]).addTo(map)
+		.bindPopup('<b>09237450 YAMPA RIVER ABOVE STAGECOACH RESERVOIR, CO (Seasonal: April 1 - November 30)</b><br/><a href="https://maps.app.goo.gl/dQTNa7YAtAU82GAk6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09237450/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09239500 = L.marker([40.483266, -106.832239]).addTo(map)
+		.bindPopup('<b>009239500 YAMPA RIVER AT STEAMBOAT SPRINGS, CO</b><br/><a href="https://maps.app.goo.gl/UyBT9p5tUep5eKw38">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09239500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>'); 
+
+	const m09251000 = L.marker([40.502847, -108.033369]).addTo(map)
+		.bindPopup('<b>09251000 YAMPA RIVER NEAR MAYBELL, CO</b><br/><a href="https://maps.app.goo.gl/Xp6WpXxebrSQ8jXW9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09251000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09260050 = L.marker([40.451987, -108.526107]).addTo(map)
+		.bindPopup('<b>09260050 YAMPA RIVER AT DEERLODGE PARK, CO</b><br/><a href="https://maps.app.goo.gl/fyVqE4dkS8BddXEX6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09260050/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m404417108524900 = L.marker([40.738030, -108.880650]).addTo(map)
+		.bindPopup('<b>404417108524900 GREEN RIVER ABOVE GATES OF LODORE, CO</b><br/><a href="https://maps.app.goo.gl/RtNg5M6TzggsqT5G8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/404417108524900/#parameterCode=00010&period=P7D&showMedian=true">Site Page</a>');
+	
+	const m09304200 = L.marker([40.005381, -107.825653]).addTo(map)
+		.bindPopup('<b>09304200 WHITE RIVER ABOVE COAL CREEK NEAR MEEKER, CO</b><br/><a href="https://maps.app.goo.gl/VbW4TAyefSqXn4Ws7">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09304200/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+	
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+</script>
+
+</body>
+</html>
