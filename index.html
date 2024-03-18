@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Western Colorado Water Quality Sites</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+</head>
+<body>
+
+<h2>Western Colorado Water Quality Sites</h2>
+
+<div id="map" style="width: 1000px; height: 800px;"></div>
+<script>
+
+	var greenIcon = new L.Icon({
+	  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+	  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	  iconSize: [25, 41],
+	  iconAnchor: [12, 41],
+	  popupAnchor: [1, -34],
+	  shadowSize: [41, 41]
+	});
+	
+	var purpleIcon = new L.Icon({
+	  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png',
+	  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	  iconSize: [25, 41],
+	  iconAnchor: [12, 41],
+	  popupAnchor: [1, -34],
+	  shadowSize: [41, 41]
+	});
+	
+	var redIcon = new L.Icon({
+	  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+	  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+	  iconSize: [25, 41],
+	  iconAnchor: [12, 41],
+	  popupAnchor: [1, -34],
+	  shadowSize: [41, 41]
+	});
+
+	const map = L.map('map').setView([39.8, -107.26], 8);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+	
+	//Colorado and Roaring Fork
+	const m09071750 = L.marker([39.557842, -107.290781], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09071750 COLORADO RIVER ABOVE GLENWOOD SPRINGS, CO</b><br/><a href="https://maps.app.goo.gl/DPqTMGd4Ym4B4Lj18">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09071750/#parameterCode=00010&period=P7D&showMedian=true">Site Page</a>');
+		
+	const m09073300 = L.marker([39.140967, -106.774438]).addTo(map)
+		.bindPopup('<b>09073300 ROARING FORK RIVER AB DIFFICULT C NR ASPEN, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/bf2NkZaLFigkwVX56">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09073300/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09076300 = L.marker([39.223215, -106.857274]).addTo(map)
+		.bindPopup('<b>09076300 ROARING FORK RIVER BLW MAROON CREEK NR ASPEN, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/zhAAXGRgi9fEMAq1A">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09076300/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');	
+
+	const m09081000 = L.marker([39.373417, -107.084308], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09081000 ROARING FORK RIVER NEAR EMMA, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/uaTQRFcxgjhne3hn9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09081000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09085000 = L.marker([39.546699, -107.330842], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09085000 ROARING FORK RIVER AT GLENWOOD SPRINGS, CO</b><br/><a href="https://maps.app.goo.gl/fyFANN9WFfD9rb5n8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09085000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m393259107194801 = L.marker([39.549748, -107.330142], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>393259107194801 COLORADO R ABV ROARING FORK R AT GLENWOOD SPGS, CO</b><br/><a href="https://maps.app.goo.gl/DggysYJZFKKHDU6k6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/393259107194801/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09085150 = L.marker([39.561731, -107.406910], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09085150 COLORADO R ABV SOUTH CANYON CR NR GLENWOOD SPGS, CO</b><br/><a href="https://maps.app.goo.gl/aktWnCwitHRbNKMX8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09085150/#parameterCode=00010&period=P7D&showMedian=true">Site Page</a>');
+	
+	// Roan Creek	
+	const m391953108130201 = L.marker([39.331205, -108.217848]).addTo(map)
+		.bindPopup('<b>391953108130201 ROAN CREEK AT DE BEQUE, CO</b><br/><a href="https://maps.app.goo.gl/3oFFHBDkTCNkG2169">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/391953108130201/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');	
+	
+	//Cameo
+	const m09095500 = L.marker([39.239128, -108.265835]).addTo(map)
+		.bindPopup('<b>09095500 COLORADO RIVER NEAR CAMEO, CO</b><br/><a href="https://maps.app.goo.gl/hWByxvBd6sdGeN8X6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09095500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');	
+		
+	//State line
+	const m09163500 = L.marker([39.132701, -109.027020], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09163500 COLORADO RIVER NEAR COLORADO-UTAH STATE LINE</b><br/><a href="https://maps.app.goo.gl/njjEem1v5U3MUyMB6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09163500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	//Eagle
+	const m09066510 = L.marker([39.609869, -106.447049], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09066510 GORE CREEK AT MOUTH NEAR MINTURN, CO (Seasonal CWQM: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/nQiHGzohd87cbU5Z8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09066510/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09063000 = L.marker([39.508673, -106.366708], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09063000 EAGLE RIVER AT RED CLIFF, CO (Seasonal CWQM: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/MXapJYY2pZvC3gnf9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09063000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09064600 = L.marker([39.554379, -106.402259], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09064600 EAGLE RIVER NEAR MINTURN, CO (Seasonal CWQM: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/8FJj4Bz5hYkY8Qw5A">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09064600/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m394220106431500 = L.marker([39.704950, -106.725914], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>394220106431500 EAGLE RIVER BELOW MILK CREEK NEAR WOLCOTT, CO</b><br/><a href="https://maps.app.goo.gl/pD8s1mzmok3o14qy8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/394220106431500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09070050 = L.marker([39.652151, -106.965510]).addTo(map)
+		.bindPopup('<b>09070050 EAGLE RIVER AT PRICE LANE BRIDGE NEAR GYPSUM, CO</b><br/><a href="https://maps.app.goo.gl/gNRoMjj43Ej1aDdy8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09070050/#parameterCode=00010&period=P7D&showMedian=true">Site Page</a>');	
+	
+	const m09070500 = L.marker([39.644212, -107.079440]).addTo(map)
+		.bindPopup('<b>09070500 COLORADO RIVER NEAR DOTSERO, CO</b><br/><a href="https://maps.app.goo.gl/2HZ7A6hCAfPnKjBS7">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09070500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09065500 = L.marker([39.625862, -106.277669], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09065500 GORE CREEK AT UPPER STATION, NEAR MINTURN, CO.</b><br/><p>(Continuous monitor maintained by LFO)</p><a href="https://maps.app.goo.gl/81ZQqrvKKcLCK2Mg9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09065500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m393627106264000 = L.marker([39.607500, -106.444444], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>393627106264000 EAGLE RIVER ABOVE GORE CREEK NR. MINTURN, CO</b><br/><a href="https://maps.app.goo.gl/racVQrk1LdNQfMoq9">Map</a>');
+		
+	const m09067005 = L.marker([39.631971, -106.522938], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09067005 EAGLE RIVER AT AVON, CO.</b><br/><a href="https://maps.app.goo.gl/4rpPzNpp8uJ3QQbt9">Map</a>');
+		
+	const m09068500 = L.marker([39.646886, -106.841469], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09068500 BRUSH CREEK AT EAGLE, CO</b><br/><a href="https://maps.app.goo.gl/picqez3kQdLdD3Hd6">Map</a>');	
+	
+	const m09069000 = L.marker([39.649849, -106.952536], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09069000 EAGLE RIVER AT GYPSUM, CO</b><br/><a href="https://maps.app.goo.gl/uiH6KP76oRqEbNXj9">Map</a>');	
+	
+	//Grand Valley
+	const m390523108362901 = L.marker([39.089636, -108.608014], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>390523108362901 LEACH CR BLW RIVERSIDE PKWY AT GRAND JUNCTION, CO</b><br/><a href="https://maps.app.goo.gl/H2acHrFZGPpSgEQAA">Map</a>');
+	
+	const m390755108420200 = L.marker([39.131750, -108.701358], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>390755108420200 ADOBE CREEK AT 19 RD NR FRUITA, CO</b><br/><a href="https://maps.app.goo.gl/APZ2SvW7c3kQccyw6">Map</a>');
+		
+	const m391509108433001 = L.marker([39.252526, -108.725005], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>391509108433001 BIG SALT WASH AT GOVT HIGHLINE CANAL NR LOMA, CO</b><br/><a href="https://maps.app.goo.gl/Q2TqEirpVnrghqHP9">Map</a>');
+	
+	const m09153270 = L.marker([39.164049, -108.750456], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09153270 BIG SALT WASH AT FRUITA, CO.</b><br/><a href="https://maps.app.goo.gl/4BqcncGtqCXi742k8">Map</a>');
+	
+	const m09153300 = L.marker([39.182956, -108.787496], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09153300 REED WASH NEAR LOMA, CO.</b><br/><a href="https://maps.app.goo.gl/GeoQEiRLXF45wAR78">Map</a>');
+	
+	const m09163492 = L.marker([39.214742, -108.901412], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09163492 SALT CREEK NEAR MOUTH NEAR MACK, CO.</b><br/><p>CWQM maintained by WCO Studies</p><a href="">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09163492/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	//Lower Gunnison
+	const m384822107411201 = L.marker([38.806167, -107.686921], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>384822107411201 COTTONWOOD CREEK AT CTY ROAD J75, NR MOUTH</b><br/><a href="https://maps.app.goo.gl/jYsio9UEbMDovX7L6">Map</a>');
+	
+	const m384434107432701 = L.marker([38.742642, -107.724204], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>384434107432701 ALUM GULCH NR HOTCHKISS CO</b><br/><a href="https://maps.app.goo.gl/Zdq4P9E2CcGWrUMG8">Map</a>');	
+		
+	const m09136100 = L.marker([38.785146, -107.833464], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09136100 NORTH FK GUNNISON RIVER ABOVE MOUTH NR LAZEAR, CO</b><br/><a href="https://maps.app.goo.gl/uYN4NssR5Mfm6YLB6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09136100/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m384604107570701 = L.marker([38.766848, -107.952677], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>384604107570701 PEACH VALLEY ARROYO NEAR MOUTH</b><br/><a href="https://maps.app.goo.gl/CJ46rzsPGnncY2ps8">Map</a>');
+		
+	const m384551107591901 = L.marker([38.764281, -107.989103], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>384551107591901 SUNFLOWER DRAIN AT HIGHWAY 92,NEAR READ</b><br/><a href="https://maps.app.goo.gl/Zf1gKrNxMmzyUys1A">Map</a>');	
+		
+	const m09147500 = L.marker([38.331437, -107.779236], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09147500 UNCOMPAHGRE RIVER AT COLONA, CO</b><br/><a href="https://maps.app.goo.gl/KBejrXzZtfdD8F9E7">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09147500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m382632107332501 = L.marker([38.442948, -107.556958], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>382632107332501 CIMARRON CREEK AT MOUTH, AT CIMARRON, CO</b><br/><a href="https://maps.app.goo.gl/meksfvVSrGJqm58s5">Map</a>');
+			
+	const m09127000 = L.marker([38.447149, -107.555027]).addTo(map)
+		.bindPopup('<b>09127000 CIMARRON RIVER BLW CIMARRON CREEK AT CIMARRON, CO (Seasonal CWQM: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/m2jV49oSPYWFvUAd9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09127000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+	
+	const m382802107513301 = L.marker([38.467104, -107.859675], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>382802107513301 MONTROSE ARROYO AT EAST NIAGARA STREET</b><br/><a href="https://maps.app.goo.gl/ZpQUnsMZmkDyWSZ26">Map</a>');
+
+	const m383728107572001 = L.marker([38.623240, -107.955811], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>383728107572001 WEST TRIB OF LOUTSENHIZER ARROYO BLW EAST CANAL</b><br/><a href="https://maps.app.goo.gl/eUm7rNCwZJ86TB3R6">Map</a>');
+		
+	const m383926107593001 = L.marker([38.657369, -107.992894], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>383926107593001 LOUTSENHIZER ARROYO AT HWY 50 NEAR OLATHE CO</b><br/><p>Discrete samples are collected here for site: 383946107595301 LOUTSENHIZER ARROYO BLW N. RIVER ROAD NR DELTA, CO</p><a href="https://maps.app.goo.gl/4Ch5CUU6xbaRd5Ti8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/383926107593001/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+	
+	const m09149500 = L.marker([38.741940, -108.080398], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09149500 UNCOMPAHGRE RIVER AT DELTA, CO</b><br/><a href="https://maps.app.goo.gl/4qwWqXEMJQkLAvm28">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09149500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09144250 = L.marker([38.753251, -108.078651], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09144250 GUNNISON RIVER AT DELTA, CO</b><br/><a href="https://maps.app.goo.gl/aB1MakMNmbCdHkXG8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09144250/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+  	const m09152500 = L.marker([38.983360, -108.450741], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09152500 GUNNISON RIVER NEAR GRAND JUNCTION, CO</b><br/><a href="https://maps.app.goo.gl/xHnC1ZqQh4iy11yW9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09152500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  	//Upper Gunnison
+	const m09111250 = L.marker([38.871584, -106.985358], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09111250 COAL CREEK ABV MCCORMICK DTCH AT CRESTED BUTTE, CO</b><br/><a href="https://maps.app.goo.gl/EupKJBXpfEyUXpFZ6">Map</a>');
+		
+	const m385106106571000 = L.marker([38.851669, -106.953151], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>385106106571000 SLATE R AB BAXTER GL AT HWY 135 NR CRESTED BUTTE, CO (Seasonal: May 1 - October 30)</b><br/><a href="https://maps.app.goo.gl/E4692CxjHbGDdcAk8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/385106106571000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+  	const m09107000 = L.marker([38.860262, -106.567085], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09107000 TAYLOR RIVER AT TAYLOR PARK, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/Dd7FFCBjQp4UhTWz5">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09107000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09112200 = L.marker([38.783980, -106.871447], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09112200 EAST RIVER BELOW CEMENT CREEK NR CRESTED BUTTE, CO</b><br/><a href="https://maps.app.goo.gl/1NvpTUsKtQCyWC21A">Map</a>');
+	
+	const m09110000 = L.marker([38.664602, -106.845317]).addTo(map)
+		.bindPopup('<b>09110000 TAYLOR RIVER AT ALMONT, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/VQqmBFYEe5Hp8CGk8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09110000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+ 	 const m09112500 = L.marker([38.664443, -106.847897], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09112500 EAST RIVER AT ALMONT, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/ZDjugBPfZbbmgCVS8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09112500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09113980 = L.marker([38.587948, -106.931269], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09113980 OHIO CREEK ABOVE MOUTH NR GUNNISON, CO</b><br/><a href="https://maps.app.goo.gl/z7Qhgu3LWLpDktNq5">Map</a>');
+	
+  	const m09114500 = L.marker([38.541776, -106.949660], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09114500 GUNNISON RIVER NEAR GUNNISON, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/6oHDf6wAQ4dqG3qG8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09114500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m382420106245401 = L.marker([38.405557, -106.414877], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>382420106245401 MARSHALL CREEK AT SARGENTS, CO</b><br/><a href="https://maps.app.goo.gl/ZdYhe1jjpstzexL76">Map</a>');
+		
+	const m383126106475600 = L.marker([38.523684, -106.795808], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>383126106475600 TOMICHI CK. BLW. COCHETOPA CK. NR. PARLIN, CO</b><br/><a href="https://maps.app.goo.gl/JU3i51fZiyspdPXF8">Map</a>');	
+
+ 	const m09119000 = L.marker([38.521408, -106.940106], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09119000 TOMICHI CREEK AT GUNNISON, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/apwCYzkGwZzJcbCd8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09119000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m383103106594200 = L.marker([38.517688, -106.994453], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>383103106594200 GUNNISON RIVER AT CNTY RD 32 BELOW GUNNISON, CO</b><br/><a href="https://maps.app.goo.gl/6ZHscs69izN1kWdV6">Map</a>');
+
+  	const m09124500 = L.marker([38.298884, -107.230147]).addTo(map)
+		.bindPopup('<b>09124500 LAKE FORK AT GATEVIEW, CO (Seasonal: May 1 - October 31)</b><br/><a href="https://maps.app.goo.gl/AMxDp5teEvQAiRjLA">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09124500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m381633107054700 = L.marker([38.275639, -107.096506], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>381633107054700 CEBOLLA CREEK AT POWDERHORN, CO</b><br/><a href="https://maps.app.goo.gl/1KK2Awk98aXQPi949">Map</a>');
+
+	const m09113500 = L.marker([38.703015, -106.999954], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09113500 OHIO CREEK NEAR BALDWIN, CO.</b><br/><a href="https://maps.app.goo.gl/aPNZDBnYSuDox4qM8">Map</a>');
+		
+		
+	//Yampa
+	const m09060799 = L.marker([39.891291, -106.830983]).addTo(map)
+		.bindPopup('<b>09060799 COLORADO RIVER AT CATAMOUNT BRIDGE, CO (Seasonal CWQM: March 15 - November 15)</b><br/><a href="https://maps.app.goo.gl/h78HNJ3UP3wgWVV28">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09060799/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+	
+	const m404417108524900 = L.marker([40.738030, -108.880650], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>404417108524900 GREEN RIVER ABOVE GATES OF LODORE, CO</b><br/><a href="https://maps.app.goo.gl/RtNg5M6TzggsqT5G8">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/404417108524900/#parameterCode=00010&period=P7D&showMedian=true">Site Page</a>');
+	
+	const m09237450 = L.marker([40.264319, -106.891555], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09237450 YAMPA RIVER ABOVE STAGECOACH RESERVOIR, CO (Seasonal: April 1 - November 30)</b><br/><a href="https://maps.app.goo.gl/dQTNa7YAtAU82GAk6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09237450/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m402544106493600 = L.marker([40.429015, -106.827263], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>402544106493600 YAMPA RIVER BELOW OAK CREEK NR STEAMBOAT SPG,CO.</b><br/><a href="https://maps.app.goo.gl/rSTHmyZkrboEELJy7">Map</a>');	
+
+	const m09239500 = L.marker([40.483266, -106.832239], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>009239500 YAMPA RIVER AT STEAMBOAT SPRINGS, CO</b><br/><a href="https://maps.app.goo.gl/UyBT9p5tUep5eKw38">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09239500/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>'); 
+
+	const m09240020 = L.marker([40.489111, -106.841833]).addTo(map)
+		.bindPopup('<b>09240020 YAMPA RIVER BELOW SODA CREEK AT STEAMBOAT SPGS, CO (Seasonal CWQM: May 1 - August 31)</b><br/><a href="https://maps.app.goo.gl/wZksoD3g5aCJ7pDT9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09240020/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+	
+	const m09242500 = L.marker([40.514643, -106.953867], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09242500 ELK RIVER NEAR MILNER, CO.</b><br/><a href="https://maps.app.goo.gl/NpRxG2tM4DAxQbh58">Map</a>');	
+	
+	const m402840107004200 = L.marker([40.477881, -107.012893], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>402840107004200 YAMPA RIVER AT MILNER, CO.</b><br/><a href="https://maps.app.goo.gl/6Y6SH9tkCNgePxEn7">Map</a>');
+		
+	const m09244490 = L.marker([40.517858, -107.398842], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09244490 YAMPA RIVER ABOVE ELKHEAD CREEK NEAR HAYDEN, CO</b><br/><a href="https://maps.app.goo.gl/Ts9SjmeM2dBH3CAf6">Map</a>');
+	
+	const m09247600 = L.marker([40.480926, -107.613908], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09247600 YAMPA RIVER BELOW CRAIG, CO.</b><br/><a href="https://maps.app.goo.gl/mZheAPeXqxYyd22V7">Map</a>');
+	
+	const m09251000 = L.marker([40.502847, -108.033369], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09251000 YAMPA RIVER NEAR MAYBELL, CO</b><br/><a href="https://maps.app.goo.gl/Xp6WpXxebrSQ8jXW9">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09251000/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	const m09260000 = L.marker([40.548902, -108.424522], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09260000 LITTLE SNAKE RIVER NEAR LILY, CO</b><br/><a href="https://maps.app.goo.gl/f9md6jXncamdseNe6">Map</a>');
+		
+	const m09260050 = L.marker([40.451987, -108.526107], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09260050 YAMPA RIVER AT DEERLODGE PARK, CO</b><br/><a href="https://maps.app.goo.gl/fyVqE4dkS8BddXEX6">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09260050/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+
+	//White and Piceance
+	
+	const m09303000 = L.marker([39.985946, -107.617445], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09303000 NORTH FORK WHITE RIVER AT BUFORD, CO</b><br/><a href="https://maps.app.goo.gl/HKSbiDSQxbFtmkW8A">Map</a>');
+	
+	const m09304000 = L.marker([39.974806, -107.624507], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09304000 SOUTH FORK WHITE RIVER AT BUFORD, CO.</b><br/><a href="https://maps.app.goo.gl/wMawfbwuqwdgTvEm7">Map</a>');
+	
+	const m395650107435600 = L.marker([39.947250, -107.732164], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>395650107435600 WHITE RIVER ABOVE DRY CREEK, NEAR MEEKER, CO</b><br/><a href="https://maps.app.goo.gl/C8K5wxuBeoAoyRgk7">Map</a>');
+		
+	const m09304200 = L.marker([40.005381, -107.825653], {icon: purpleIcon}).addTo(map)
+		.bindPopup('<b>09304200 WHITE RIVER ABOVE COAL CREEK NEAR MEEKER, CO</b><br/><a href="https://maps.app.goo.gl/VbW4TAyefSqXn4Ws7">Map</a><br/><a href="https://waterdata.usgs.gov/monitoring-location/09304200/#parameterCode=00065&period=P7D&showMedian=false">Site Page</a>');
+		
+	const m09304800 = L.marker([40.022572, -108.119984], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09304800 WHITE RIVER BELOW MEEKER, CO</b><br/><a href="https://maps.app.goo.gl/fYVTX5s4MgsdgXMV9">Map</a>');
+	
+	const m09306290 = L.marker([40.180041, -108.565529], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09306290 WHITE RIVER BELOW BOISE CREEK NEAR RANGELY, CO</b><br/><a href="https://maps.app.goo.gl/QVh2FqA1EkxgcXY56">Map</a>');
+	
+	const m09306305 = L.marker([40.105050, -108.713718], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09306305 WHITE RIVER BL.TAYLOR DRAW RES., ABV. RANGELY CO.</b><br/><a href="https://maps.app.goo.gl/Cye6ngTDT1NKrJwo6">Map</a>');
+	
+	const m400535108485700 = L.marker([40.092877, -108.816656], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>400535108485700 WHITE R AT HWY 64 BRIDGE BL RANGELY, CO</b><br/><a href="https://maps.app.goo.gl/4iPbC21zRnJbZNot8">Map</a>');
+	
+	const m09306200 = L.marker([39.921087, -108.297548], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09306200 PICEANCE CREEK BELOW RYAN GULCH NEAR RIO BLANCO, CO</b><br/><a href="https://maps.app.goo.gl/DgvyFJ2Lk7m9Y42t6">Map</a>');
+	
+	const m09306222 = L.marker([40.077638, -108.236438], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09306222 PICEANCE CREEK AT WHITE RIVER, CO</b><br/><a href="https://maps.app.goo.gl/RVZY8Pgr7SLdygQr7">Map</a>');
+	
+	const m09306242 = L.marker([39.920284, -108.473100], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09306242 CORRAL GULCH NEAR RANGELY, CO</b><br/><a href="https://maps.app.goo.gl/6NeSEu8xjz67cCjY9">Map</a>');
+	
+	const m09306255 = L.marker([40.168740, -108.401173], {icon: redIcon}).addTo(map)
+		.bindPopup('<b>09306255 YELLOW CREEK NEAR WHITE RIVER, CO</b><br/><a href="https://maps.app.goo.gl/FFYt6XdcjVvZKGWGA">Map</a>');
+	
+	
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent(`You clicked the map at ${e.latlng.toString()}`)
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+</script>
+
+<table>
+	<tr>
+		<td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png" alt="blue icon"></td>
+		<td>Continuous Only</td>
+	</tr>
+	<tr>
+		<td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" alt="red icon"></td>
+		<td>Discrete Only</td>
+	</tr>
+	<tr>
+		<td><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-violet.png" alt="purple icon"></td>
+		<td>Continuous and Discrete</td>
+	</tr>
+</table>
+
+<!--
+Use this to show CWQM and Discrete sites separately or together on same map: https://leafletjs.com/examples/layers-control/
+Also show different runs together or separately?
+Or change layers
+
+https://github.com/pointhi/leaflet-color-markers
+
+
+-->
+
+</body>
+</html>
